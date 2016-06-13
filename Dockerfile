@@ -12,7 +12,7 @@ RUN mkdir -p "$SEMAGROW_HOME"
 
 RUN git clone https://github.com/semagrow/semagrow.git && \
     cd semagrow && \
-    git checkout release-1.5 && \
+    git checkout tags/1.5.0 && \
     mvn clean install -DskipTests -Psemagrow-stack-webapp-distribution && \
     cp /semagrow/http/target/semagrow-http-*-distribution.zip $SEMAGROW_HOME && \
     cd $SEMAGROW_HOME && \
@@ -21,7 +21,7 @@ RUN git clone https://github.com/semagrow/semagrow.git && \
     cd / && \
     git clone https://github.com/semagrow/semagrow-quetsal.git && \
     cd semagrow-quetsal && \
-    git checkout release-1.5 && \
+    git checkout tags/1.5.0 && \
     mvn clean package && \
     cp target/semagrow-quetsal-1.5.jar $SEMAGROW_HOME/domains/localhost/webapps/SemaGrow/WEB-INF/lib/ && \
     mvn dependency:copy-dependencies && \
